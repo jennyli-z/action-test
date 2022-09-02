@@ -15,7 +15,7 @@ jobs:
         run: |
           function validate(){
             local file_path=${1:-Jenkinsfile}
-            local jenkins_url=${2:-"https://jenkins.milvus.io:18080/"}
+            local jenkins_url=${2:-"https://ci.milvus.io:18080/"}
        
             JENKINS_CRUMB=`curl "${jenkins_url}/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)"`
             response=$(curl --max-time 10 --retry 5 --retry-delay 0 --retry-max-time 40  -X POST -H $JENKINS_CRUMB -F "jenkinsfile=<${file_path}" ${jenkins_url}/pipeline-model-converter/validate)
