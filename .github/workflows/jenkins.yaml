@@ -50,5 +50,7 @@ jobs:
                 fi
             done
           }
+          curl -vvv https://ci.milvus.io:18080/
           validate_path "ci/jenkins/*" "https://ci.milvus.io:18080/"
+          
     
